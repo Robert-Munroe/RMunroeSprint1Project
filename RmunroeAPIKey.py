@@ -3,7 +3,7 @@ import requests
 
 
 def get_data():
-    all_data = []
+    all_data = [150]
 
     for page in range(150):
         response = requests.get(f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_"
