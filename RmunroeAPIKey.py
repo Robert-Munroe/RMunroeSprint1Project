@@ -5,7 +5,7 @@ import requests
 def get_data():
     all_data = []
 
-    for page in range(5):
+    for page in range(150):
         response = requests.get(f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_"
                                 f"awarded.predominant=2,3"
                                 f"&fields=school.name,school.city,school.state,2018.student.size,2017.student.size,"
@@ -21,11 +21,11 @@ def get_data():
 
 
 def main():
-    final_data = ' '.join([str(elem) for elem in get_data()])
     f = open("School_Data.txt", "w")
+    final_data = ' '.join([str(elem) for elem in get_data()])
     f.write(final_data)
-    f.close()
 
+    f.close()
     f = open("School_Data.txt", "r")
     print(f.read())
     f.close()
